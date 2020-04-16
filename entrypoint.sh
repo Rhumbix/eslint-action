@@ -8,7 +8,7 @@ yarn --non-interactive --silent --ignore-scripts --production=false
 
 # Run ESLint on files that were modified (but not deleted) by this PR
 ESLINT="./node_modules/.bin/eslint"
-CHANGED_FILES=$(git diff --name-only --diff-filter=ACM ${{ github.head_ref }}..${{github.base_ref}} | grep -E "\\.[jt]sx?$")
+CHANGED_FILES=$(git diff --name-only --diff-filter=ACM ${HEAD_REF}..${BASE_REF} | grep -E "\\.[jt]sx?$")
 
 echo "## Running ESLint"
 if [[ "$CHANGED_FILES" != "" ]]; then
